@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="1280dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:id="@+id/Headbar">
+
+
+        <com.example.robotremote.ui.BatteryView
+            android:id="@+id/power"
+            android:layout_width="10dp"
+            android:layout_height="45dp" />
+
+        <ImageView
+            android:id="@+id/PCconnect"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/networking"
+            android:layout_toEndOf="@+id/power" />
+
+        <ImageView
+            android:id="@+id/Dir"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/PCconnect"
+            android:src="@drawable/stop"
+            android:layout_toRightOf="@id/power" />
+
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/Dir"
+            android:layout_weight="1"
+            android:text="车速:0.0m/s"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/Gas"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/speed"
+            android:text="瓦斯:0"
+            android:textSize="20dp" />
+
+        <com.example.robotremote.ui.RobotwarnTextview
+            android:id="@+id/Alter"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/alarm"
+            android:gravity="center"
+            android:text="运行正常"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/Alter"
+            android:gravity="center"
+            android:text="状态:遥控"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/alarm"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/alarm"
+            android:layout_toStartOf="@+id/smoke" />
+
+        <ImageView
+            android:id="@+id/smoke"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/smoke"
+            android:layout_marginEnd="30dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_toLeftOf="@id/speed"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_toRightOf="@id/speed"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_toRightOf="@id/Gas"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_toRightOf="@id/status"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_toLeftOf="@id/alarm"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+
+    </RelativeLayout>
+
+<FrameLayout
+        android:layout_below="@id/Headbar"
+        android:layout_above="@+id/tailbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="445dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+
+        <com.example.robotremote.HIKIVideo.PlaySurfaceview
+            android:id="@+id/surface1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1" />
+
+        <com.example.robotremote.HIKIVideo.PlaySurfaceview
+            android:id="@+id/surface2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/dirlay"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp">
+
+
+        <Button
+            android:id="@+id/btn_PTZ_left"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="左转" />
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_PTZ_right"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="右转" />
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/btn_PTZ_down"
+            android:text="下转" />
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_PTZ_up"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:text="上转" />
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>
+    <LinearLayout
+        android:id="@+id/tailbar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="1280dp"
+        android:layout_height="27dp">
+
+        <com.example.robotremote.ui.RobotProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>
